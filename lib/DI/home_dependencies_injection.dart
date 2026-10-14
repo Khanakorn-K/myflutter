@@ -9,7 +9,7 @@ final sl = GetIt.instance;
 
 /// Composition root — ที่เดียวที่รู้จัก concrete class.
 /// Presentation / Domain รู้จักแค่ abstract.
-void setupLocator() {
+void homeSetupLocator() {
   // Data sources
   sl.registerLazySingleton<HomeDataSource>(() => HomeRemoteDataSource());
 

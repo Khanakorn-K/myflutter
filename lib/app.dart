@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myflutter/dependencies_injection.dart';
+import 'package:myflutter/DI/home_dependencies_injection.dart';
 import 'package:myflutter/features/home/presentation/view_model/home_viewmodel.dart';
 import 'package:myflutter/menu_bar.dart';
 
