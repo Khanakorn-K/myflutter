@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myflutter/dependencies_Injection.dart';
-import 'package:myflutter/features/home/presentation/widgets/home.dart';
+import 'package:myflutter/app.dart';
+import 'package:myflutter/dependencies_injection.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
-  runApp(MaterialApp(
-    title: 'khanakorn App',
-    home: Scaffold(
-      appBar: AppBar(
-        title: const Text("khanakorn"),
-        backgroundColor: Colors.blue,
-        centerTitle: true,
-      ),
-      body: const Home(),
-    ),
-  ));
+  runApp(const MyApp());
 }

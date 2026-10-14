@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meme Motion Graphic 9:16</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:'Prompt',system-ui,'Noto Sans Thai',sans-serif;color:white;gap:12px;padding:20px}
+  h1{font-size:18px;opacity:.8}
+  p.hint{font-size:14px;opacity:.6;text-align:center}
+  /* Stage 9:16 */
+  #stage{width:min(400px,90vw);aspect-ratio:9/16;background:#000;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.6);border:3px solid #222}
+  .scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;opacity:0;transform:scale(1.1);transition:opacity .4s}
+  .scene.active{opacity:1;transform:scale(1)}
+  /* Scene 1 : ชี้หน้าขำ */
+  .s1{background:linear-gradient(180deg,#ffde59,#ff9a3d)}
+  .s1 .chars{font-size:110px;animation:shakeX .35s infinite alternate;filter:drop-shadow(0 10px 0 rgba(0,0,0,.2))}
+  @keyframes shakeX{from{transform:rotate(-4deg) scale(1)}to{transform:rotate(4deg) scale(1.08)}}
+  .s1 .point{font-size:90px;animation:pointPop .5s infinite alternate;transform-origin:bottom left}
+  @keyframes pointPop{from{transform:scale(1) translate(0,0)}to{transform:scale(1.3) translate(-15px,-15px)}}
+  .caption{background:#000;color:#fff;font-weight:900;font-size:28px;padding:8px 16px;border-radius:12px;margin-top:16px;line-height:1.3;animation:pop .4s cubic-bezier(.2,2,.4,1)}
+  .sub{font-size:19px;font-weight:700;margin-top:8px;color:#222;background:#fff;padding:4px 12px;border-radius:999px}
+  @keyframes pop{from{transform:scale(.2) rotate(-10deg)}to{transform:scale(1) rotate(0)}}
+  /* Scene 2 : แมวงง */
+  .s2{background:#e8e8e8;color:#111}
+  .s2 .cat{font-size:120px;animation:look .8s infinite alternate ease-in-out}
+  @keyframes look{from{transform:translateX(-20px) rotate(-5deg)}to{transform:translateX(20px) rotate(5deg)}}
+  .qs span{position:absolute;font-weight:900;animation:floatQ 1.2s infinite ease-in-out}
+  @keyframes floatQ{0%,100%{transform:translateY(0) scale(1);opacity:1}50%{transform:translateY(-18px) scale(1.4);opacity:.6}}
+  .s2 .box{font-size:80px}
+  /* Scene 3 : เมิน / แหยง */
+  .s3{background:radial-gradient(circle,#3b82f6,#0a1a5c);overflow:hidden}
+  .s3 .face{font-size:150px;animation:cringe .25s infinite}
+  @keyframes cringe{0%{transform:translate(0,0) scale(1)}25%{transform:translate(-6px,3px) scale(1.05)}50%{transform:translate(6px,-3px) scale(1)}75%{transform:translate(-3px,-4px) scale(1.08)}100%{transform:translate(0,0)}}
+  .shake-text{animation:pop .3s infinite alternate;font-size:32px;font-weight:900;background:#ff0044;padding:8px 18px;border-radius:12px;margin-top:12px}
+  /* Scene 4 : No le hablen */
+  .s4{background:radial-gradient(circle at 50% 30%,#4a5a6a,#0a0f14 70%)}
+  .spot{position:absolute;top:0;left:50%;width:220px;height:100%;background:linear-gradient(180deg,rgba(255,255,200,.35),transparent);clip-path:polygon(40% 0,60% 0,100% 100%,0 100%);transform:translateX(-50%);animation:swing 2s infinite ease-in-out;transform-origin:top}
+  @keyframes swing{0%,100%{transform:translateX(-50%) rotate(-8deg)}50%{transform:translateX(-50%) rotate(8deg)}}
+  .s4 .crew{font-size:80px;letter-spacing:-10px;animation:creep 1s infinite alternate}
+  @keyframes creep{from{transform:scale(1)}to{transform:scale(1.1)}}
+  .es{font-family:Impact,Anton,sans-serif;font-size:26px;color:#fff;-webkit-text-stroke:1.5px #000;text-shadow:3px 3px 0 #000;line-height:1.2;margin-top:14px}
+  /* progress */
+  #bar{position:absolute;top:0;left:0;height:6px;background:#00ff88;width:0%;z-index:10}
+  #controls{display:flex;gap:10px}
+  button{background:#222;color:#fff;border:1px solid #444;padding:10px 18px;border-radius:999px;font-size:16px;cursor:pointer}
+  button.primary{background:#00ff88;color:#000;font-weight:800;border:none}
+  .beat{position:absolute;inset:0;pointer-events:none;border:18px solid transparent;animation:beat .55s infinite}
+  @keyframes beat{0%,100%{border-color:transparent}50%{border-color:rgba(255,255,255,.25)}}
+</style>
+</head>
+<body>
+<h1>😂 MEME MOTION — 9:16 TikTok (10 วิ ลูป)</h1>
+<div id="stage">
+  <div id="bar"></div>
+  <div class="beat"></div>
+
+  <div class="scene s1 active">
+    <div style="font-weight:900;background:#000;color:#ffde59;padding:6px 14px;border-radius:999px">SCENE 1/4 • ชี้หน้าขำ</div>
+    <div class="chars">😬<span class="point">👉</span>😜</div>
+    <div class="caption">“ขำลั่น! บอกแล้วอย่าทำทรง”</div>
+    <div class="sub">ไจแอนท์ & ซูเนโอะ โหมดเยาะเย้ย 🤣</div>
+  </div>
+
+  <div class="scene s2">
+    <div class="qs" id="qs"></div>
+    <div style="font-weight:900;background:#111;color:#fff;padding:6px 14px;border-radius:999px">SCENE 2/4 • แมวงง</div>
+    <div class="cat">🐱<span class="box">🖥️</span></div>
+    <div class="caption" style="background:#111">“ห๊ะ? อะไรนะ? งงไปหมด”</div>
+    <div class="sub">??? เต็มหัวไปหมด ❓❓❓</div>
+  </div>
+
+  <div class="scene s3">
+    <div style="font-weight:900;background:#fff;color:#0a1a5c;padding:6px 14px;border-radius:999px">SCENE 3/4 • แหยะ</div>
+    <div class="face">😖</div>
+    <div class="shake-text">อี๋ย์~ ไม่ไหวแล้ว!</div>
+    <div class="sub">หน้าบิดแบบรับปริญญาในตำนาน 🎓</div>
+  </div>
+
+  <div class="scene s4">
+    <div class="spot"></div>
+    <div style="font-weight:900;background:#000;color:#fff;padding:6px 14px;border-radius:999px;z-index:2">SCENE 4/4 • โดนแบน</div>
+    <div class="crew">🦹🕶️👾💜🧍‍♀️</div>
+    <div class="es">No le hablen,<br>No sale<br>en este episodio.</div>
+    <div class="sub">“อย่าคุยกับนาง นางไม่ได้ออกตอนนี้”</div>
+  </div>
+</div>
+
+<div id="controls">
+  <button id="playBtn" class="primary">⏸ หยุด</button>
+  <button onclick="next()">⏭ ฉากต่อไป</button>
+  <button onclick="location.reload()">🔁 เล่นใหม่</button>
+</div>
+<p class="hint">วิธิใช้ลง TikTok: เปิดหน้านี้เต็มจอ → กดอัดหน้าจอ (Screen Record) 1 รอบ ≈ 10 วิ → ได้คลิปแนวตั้งพร้อมเสียงเพลงใส่ใน CapCut/TikTok ได้เลย<br>อยากใส่รูปจริง 4 รูปที่ส่งมา แค่เซฟรูปลงโฟลเดอร์เดียวกันแล้วบอกเรา เดี๋ยวเราแก้ให้ใช้รูปจริง + ซูม/สั่นแบบเดียวกัน</p>
+
+<script>
+const scenes=[...document.querySelectorAll('.scene')];
+const bar=document.getElementById('bar');
+let idx=0, playing=true, t=0;
+const DUR=[2.5,2.5,2.5,2.8]; // วินาทีต่อฉาก
+// สร้าง ??? ลอยๆ ฉากแมว
+const qs=document.getElementById('qs');
+for(let i=0;i<14;i++){
+  const s=document.createElement('span');
+  s.textContent='?';
+  s.style.left=Math.random()*90+'%';
+  s.style.top=Math.random()*80+'%';
+  s.style.fontSize=(18+Math.random()*48)+'px';
+  s.style.animationDelay=(Math.random()*1)+'s';
+  qs.appendChild(s);
+}
+function show(i){
+  scenes.forEach((el,k)=>el.classList.toggle('active',k===i));
+  idx=i; t=0;
+}
+function next(){show((idx+1)%scenes.length)}
+setInterval(()=>{
+  if(!playing) return;
+  t+=0.05;
+  const total=DUR.reduce((a,b)=>a+b,0);
+  const elapsed=DUR.slice(0,idx).reduce((a,b)=>a+b,0)+t;
+  bar.style.width=(elapsed/total*100)+'%';
+  if(t>=DUR[idx]) next();
+},50);
+document.getElementById('playBtn').onclick=e=>{
+  playing=!playing;
+  e.target.textContent=playing?'⏸ หยุด':'▶ เล่น';
+};
+document.getElementById('stage').onclick=()=>document.getElementById('playBtn').click();
+</script>
+</body>
+</html>

@@ -1,12 +1,14 @@
+import 'package:myflutter/core/usecase/usecase.dart';
 import 'package:myflutter/features/home/domain/entities/home_entity.dart';
 import 'package:myflutter/features/home/domain/repositories/home_repository.dart';
 
-class HomeUseCase {
-  final IHomeRepository homeRepository;
+class HomeUseCase extends UseCase<List<HomeEntity>, NoParams> {
+  final HomeRepository homeRepository;
 
   HomeUseCase({required this.homeRepository});
 
-  Future<List<HomeEntity>> fetchHomeData() async {
-    return await homeRepository.fetchHomeData();
+  @override
+  Future<List<HomeEntity>> execute(NoParams params) {
+    return homeRepository.fetchHomeData();
   }
 }
